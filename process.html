@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Process — Maison Reno</title>
+  <meta name="description" content="A transparent, three-step renovation process designed around your lifestyle." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .process-wrap { overflow: hidden; }
+
+    .process-panel {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(2rem, 5vw, 5rem) clamp(2rem, 5vw, 5rem);
+      position: sticky;
+      top: 0;
+      overflow: hidden;
+      transform: rotate(0deg);
+      transform-origin: bottom left;
+    }
+
+    .process-panel:not(:first-child) {
+      transform: rotate(30deg);
+      transform-origin: bottom left;
+      transition: transform 0.1s linear;
+    }
+
+    .process-panel:nth-child(1) { background: #fafaf8; color: #1c1917; z-index: 1; }
+    .process-panel:nth-child(2) { background: #1c1917; color: #fafaf8; z-index: 2; }
+    .process-panel:nth-child(3) { background: #c9a96e; color: #1c1917; z-index: 3; }
+
+    .process-panel h2 {
+      font-size: clamp(3.5rem, 10vw, 10rem);
+      line-height: 0.88;
+      text-transform: uppercase;
+      font-family: var(--heading);
+      font-weight: 300;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .process-step-label {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .process-step-text {
+      font-size: 13px;
+      line-height: 1.8;
+      opacity: 0.6;
+    }
+
+    hr.light { border-top: 1px solid rgba(255,255,255,0.15); margin: 28px 0; }
+    hr.dark { border-top: 1px solid rgba(28,25,23,0.15); margin: 28px 0; }
+    hr.gold { border-top: 1px solid rgba(28,25,23,0.2); margin: 28px 0; }
+
+    @media (max-width: 768px) {
+      .process-steps { grid-template-columns: 1fr; }
+      .process-panel { position: relative; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="scrolled">
+    <a href="index.html" class="nav-logo" style="color: var(--text);">Maison Reno</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html" class="active">Process</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get a Quote</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div style="padding: 140px 40px 60px; max-width: 1100px; margin: 0 auto;">
+    <span class="section-label">How it works</span>
+    <h1 style="font-size: clamp(3rem, 8vw, 7rem); max-width: 700px;">A process as refined as the result</h1>
+  </div>
+
+  <!-- PROCESS PANELS -->
+  <div class="process-wrap" id="processWrap">
+
+    <!-- Panel 1 -->
+    <div class="process-panel" data-panel="0">
+      <span class="section-label">01 — Consult</span>
+      <hr class="dark" />
+      <h2>We Listen<br>First</h2>
+      <hr class="dark" />
+      <div class="process-steps">
+        <div>
+          <p class="process-step-label">Discovery call</p>
+          <p class="process-step-text">A 30-minute conversation to understand your goals, timeline, and budget — no pressure, no hard sell.</p>
+        </div>
+        <div>
+          <p class="process-step-label">Site visit</p>
+          <p class="process-step-text">We walk through your home together, taking measurements and noting what's possible within your space.</p>
+        </div>
+        <div>
+          <p class="process-step-label">Brief alignment</p>
+          <p class="process-step-text">We document every requirement and preference before a single design is drawn.</p>
+        </div>
+      </div>
+      <p style="font-family: var(--heading); font-size: 1.5rem; font-style:italic; color: var(--muted); max-width: 500px; font-weight:300;">
+        Great renovations start long before the first tool is picked up.
+      </p>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="process-panel" data-panel="1">
+      <span class="section-label" style="color:#a8a29e;">02 — Design</span>
+      <hr class="light" />
+      <h2 style="color:#fafaf8;">Your Vision<br>Realised</h2>
+      <hr class="light" />
+      <div class="process-steps">
+        <div>
+          <p class="process-step-label" style="color:#d6d3d1;">Concept boards</p>
+          <p class="process-step-text" style="color:#fafaf8;">Mood boards, material palettes, and spatial concepts presented for your feedback.</p>
+        </div>
+        <div>
+          <p class="process-step-label" style="color:#d6d3d1;">3D renders</p>
+          <p class="process-step-text" style="color:#fafaf8;">Photo-realistic renders so you can walk through the finished space before a wall is touched.</p>
+        </div>
+        <div>
+          <p class="process-step-label" style="color:#d6d3d1;">Fixed quote</p>
+          <p class="process-step-text" style="color:#fafaf8;">A transparent, itemised quote with no hidden costs. What we quote is what you pay.</p>
+        </div>
+      </div>
+      <p style="font-family: var(--heading); font-size: 1.5rem; font-style:italic; color: #78716c; max-width: 500px; font-weight:300;">
+        No surprises. No vague estimates. Just clarity.
+      </p>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="process-panel" data-panel="2">
+      <span class="section-label" style="color: rgba(28,25,23,0.45);">03 — Build</span>
+      <hr class="gold" />
+      <h2>Delivered<br>On Time</h2>
+      <hr class="gold" />
+      <div class="process-steps">
+        <div>
+          <p class="process-step-label">Dedicated foreman</p>
+          <p class="process-step-text">One point of contact throughout the build. Daily updates. Zero chasing.</p>
+        </div>
+        <div>
+          <p class="process-step-label">Quality assurance</p>
+          <p class="process-step-text">Multi-stage inspections at every phase. Nothing moves forward until it meets our standard.</p>
+        </div>
+        <div>
+          <p class="process-step-label">5-year warranty</p>
+          <p class="process-step-text">We stand behind our work — every project comes with a comprehensive warranty.</p>
+        </div>
+      </div>
+      <a href="contact.html" class="btn">Start your project</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">Maison Reno</span>
+    <span class="footer-copy">© 2025 Maison Reno. All rights reserved.</span>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    // GSAP-style scroll rotation for panels
+    const panels = document.querySelectorAll('.process-panel[data-panel]');
+
+    const rotationObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const panel = entry.target;
+        const idx = parseInt(panel.dataset.panel);
+        if (idx === 0) return;
+        if (entry.isIntersecting) {
+          panel.style.transform = 'rotate(0deg)';
+          panel.style.transition = 'transform 0.7s cubic-bezier(.4,0,.2,1)';
+        } else {
+          panel.style.transform = 'rotate(30deg)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    panels.forEach(p => rotationObserver.observe(p));
+  </script>
+</body>
+</html>
