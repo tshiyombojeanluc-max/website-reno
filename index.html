@@ -35,7 +35,7 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-media" id="heroMedia">
-      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&auto=format&fit=crop" alt="Luxury kitchen renovation" />
+      <img src="images/project-kitchen-1.jpg" alt="Luxury kitchen renovation" />
       <div class="hero-media-overlay"></div>
     </div>
 
@@ -84,7 +84,7 @@
 
   <!-- FEATURED IMAGE -->
   <div style="width:100%; aspect-ratio:16/7; overflow:hidden; margin:0;">
-    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&auto=format&fit=crop" alt="Bespoke kitchen" style="width:100%; height:100%; object-fit:cover;" />
+    <img src="images/project-kitchen-2.jpg" alt="Open-plan kitchen and living renovation" style="width:100%; height:100%; object-fit:cover;" />
   </div>
 
   <!-- QUOTE -->
@@ -111,6 +111,17 @@
     let progress = 0;
     let isExpanded = false;
 
+    function applyHeroProgress(p) {
+      const mob = window.innerWidth <= 768;
+      const startW = mob ? 200 : 320, endW = mob ? 700 : 1100;
+      const startH = mob ? 260 : 420, endH = mob ? 280 : 380;
+      heroMedia.style.width = Math.min(startW + p * endW, window.innerWidth * 0.95) + 'px';
+      heroMedia.style.height = Math.min(startH + p * endH, window.innerHeight * 0.85) + 'px';
+      const tx = p * (mob ? 80 : 140);
+      heroWord1.style.transform = `translateX(-${tx}px)`;
+      heroWord2.style.transform = `translateX(${tx}px)`;
+    }
+
     window.addEventListener('wheel', (e) => {
       if (!isExpanded) {
         e.preventDefault();
@@ -120,15 +131,20 @@
       }
     }, { passive: false });
 
-    function applyHeroProgress(p) {
-      const w = 320 + p * 1100;
-      const h = 420 + p * 380;
-      heroMedia.style.width = Math.min(w, window.innerWidth * 0.95) + 'px';
-      heroMedia.style.height = Math.min(h, window.innerHeight * 0.85) + 'px';
-      const tx = p * 140;
-      heroWord1.style.transform = `translateX(-${tx}px)`;
-      heroWord2.style.transform = `translateX(${tx}px)`;
-    }
+    let touchStartY = 0;
+    window.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
+    window.addEventListener('touchmove', e => {
+      if (!isExpanded) {
+        e.preventDefault();
+        const delta = touchStartY - e.touches[0].clientY;
+        touchStartY = e.touches[0].clientY;
+        progress = Math.min(Math.max(progress + delta * 0.004, 0), 1);
+        applyHeroProgress(progress);
+        if (progress >= 1) isExpanded = true;
+      }
+    }, { passive: false });
+
+    applyHeroProgress(0);
 
     // Fade-in on scroll
     const observer = new IntersectionObserver((entries) => {
