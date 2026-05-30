@@ -83,7 +83,7 @@
   <div class="proj-grid-2">
     <div class="proj-card fade-in">
       <div class="proj-card-img">
-        <img src="images/project-living-1.jpg" alt="Silverton Residence — Living Room" />
+        <img src="images/project-living-1.jpg" alt="Silverton Residence — Living Room" loading="lazy" />
       </div>
       <div class="proj-card-info" style="padding-left: 40px;">
         <span class="section-label" style="margin-bottom: 6px;">Living Space</span>
@@ -93,7 +93,7 @@
     </div>
     <div class="proj-card fade-in" style="transition-delay: 0.1s;">
       <div class="proj-card-img">
-        <img src="images/project-living-2.jpg" alt="Riverside Condo — Living Space" />
+        <img src="images/project-living-2.jpg" alt="Riverside Condo — Living Space" loading="lazy" />
       </div>
       <div class="proj-card-info" style="padding-right: 40px;">
         <span class="section-label" style="margin-bottom: 6px;">Living Space</span>
@@ -106,7 +106,7 @@
   <!-- ROW 2: Penthouse full width -->
   <div class="proj-full proj-card fade-in">
     <div class="proj-card-img wide">
-      <img src="images/project-living-3.jpg" alt="Panorama Penthouse — Living Room" />
+      <img src="images/project-living-3.jpg" alt="Panorama Penthouse — Living Room" loading="lazy" />
     </div>
     <div class="proj-card-info">
       <span class="section-label" style="margin-bottom: 6px;">Full-Home Transformation</span>
@@ -119,7 +119,7 @@
   <div class="proj-grid-2">
     <div class="proj-card fade-in" style="transition-delay: 0.05s;">
       <div class="proj-card-img">
-        <img src="images/project-kitchen-1.jpg" alt="Avondale Estate — Kitchen" />
+        <img src="images/project-kitchen-1.jpg" alt="Avondale Estate — Kitchen" loading="lazy" />
       </div>
       <div class="proj-card-info" style="padding-left: 40px;">
         <span class="section-label" style="margin-bottom: 6px;">Bespoke Kitchen</span>
@@ -129,7 +129,7 @@
     </div>
     <div class="proj-card fade-in" style="transition-delay: 0.15s;">
       <div class="proj-card-img">
-        <img src="images/project-kitchen-2.jpg" alt="Meadowbrook Home — Open-Plan Kitchen & Living" />
+        <img src="images/project-kitchen-2.jpg" alt="Meadowbrook Home — Open-Plan Kitchen & Living" loading="lazy" />
       </div>
       <div class="proj-card-info" style="padding-right: 40px;">
         <span class="section-label" style="margin-bottom: 6px;">Open-Plan Transformation</span>
@@ -156,7 +156,7 @@
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>

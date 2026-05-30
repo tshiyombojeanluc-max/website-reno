@@ -21,6 +21,7 @@ function toggleMobileMenu() {
 
   const links = [
     ['index.html', 'Home'],
+    ['projects.html', 'Projects'],
     ['services.html', 'Services'],
     ['process.html', 'Process'],
     ['testimonials.html', 'Testimonials'],
